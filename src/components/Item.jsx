@@ -23,13 +23,15 @@ function Item({ itemID }) {
   return (
     <div className="ItemCard">
       <Card
-        bg="alert"
+        bg="light"
         text="Test Card"
         style={{
           width: "28rem",
-          height: "20rem",
-          margin: "0.5rem",
+          height: "25rem",
+          margin: "1rem",
           float: "left",
+          display: "flex",
+          marginRight: "2.7rem"
         }}
         className="mb-2"
       >
@@ -40,11 +42,11 @@ function Item({ itemID }) {
           </Card.Title>
           <Card.Title style={{ color: "purple" }}>Tier: {tier}</Card.Title>
           <Card.Title style={{ color: "blue" }}>
-            Category: {category}
+            Category: {String(category)}
           </Card.Title>
-          <Card.Text style={{ fontSize: "10px" }}>{lore}</Card.Text>
+          <Card.Text style={{ fontSize: "10px" }} className="text-wrap">{lore}</Card.Text>
         </Card.Body>
-        <Button onClick={getAuctions}>Load Item</Button>
+        <Button onClick={getAuctions} className="btn btn-info btn-sm">View</Button>
       </Card>
     </div>
   );

@@ -1,6 +1,9 @@
 import React from "react";
-import { Navbar, NavDropdown, Container, Nav } from "react-bootstrap";
+import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Link
+} from "react-router-dom";
 
 export default function NavBarMain() {
   return (
@@ -13,53 +16,53 @@ export default function NavBarMain() {
         style={{ height: "3rem", fontSize: "13px" }}
       >
         <Navbar.Brand
-          href="#home"
           style={{ paddingLeft: "1rem", fontSize: "19px" }}
         >
-          Hypixel Auctions
+          <Link to="/home" style={{ color: 'inherit', textDecoration: 'inherit'}}>Hypixel Auctions</Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav className="me-auto">
-            <Nav.Link href="#profiles">Profiles</Nav.Link>
-            <NavDropdown title="Buy Now" id="collasible-nav-dropdown">
+            <Nav.Link><Link to="/profiles" style={{ color: 'inherit', textDecoration: 'inherit'}}>Profiles</Link></Nav.Link>
+            <NavDropdown title="Buy Now" id="collapsible-nav-dropdown">
               <NavDropdown.Header>BIN Items</NavDropdown.Header>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#Weapons">Weapons</NavDropdown.Item>
-              <NavDropdown.Item href="#Armor">Armor</NavDropdown.Item>
-              <NavDropdown.Item href="#Accessories">
+              <NavDropdown.Item><Link to="/bin-Weapons" style={{ color: 'inherit', textDecoration: 'inherit'}}>Weapons</Link></NavDropdown.Item>
+              <NavDropdown.Item href="#BIN-Armor">Armor</NavDropdown.Item>
+              <NavDropdown.Item href="#BIN-Accessories">
                 Accessories
               </NavDropdown.Item>
-              <NavDropdown.Item href="#Consumables">
+              <NavDropdown.Item href="#BIN-Consumables">
                 Consumables
               </NavDropdown.Item>
-              <NavDropdown.Item href="#Blocks">Blocks</NavDropdown.Item>
-              <NavDropdown.Item href="#Tools">Tools</NavDropdown.Item>
+              <NavDropdown.Item href="#BIN-Blocks">Blocks</NavDropdown.Item>
+              <NavDropdown.Item href="#BIN-Tools">Tools</NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#All-BIN">All Items</NavDropdown.Item>
+              <NavDropdown.Item href="#BIN-All"><Link to="/bin-all" style={{ color: 'inherit', textDecoration: 'inherit'}}>All Items</Link></NavDropdown.Item>
             </NavDropdown>
 
-            <NavDropdown title="Auction" id="collasible-nav-dropdown">
+            <NavDropdown title="Auction" id="collapsible-nav-dropdown">
               <NavDropdown.Header>Auction Items</NavDropdown.Header>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#Weapons">Weapons</NavDropdown.Item>
-              <NavDropdown.Item href="#Armor">Armor</NavDropdown.Item>
-              <NavDropdown.Item href="#Accessories">
+              <NavDropdown.Item href="#Auction-Weapons">Weapons</NavDropdown.Item>
+              <NavDropdown.Item href="#Auction-Armor">Armor</NavDropdown.Item>
+              <NavDropdown.Item href="#Auction-Accessories">
                 Accessories
               </NavDropdown.Item>
-              <NavDropdown.Item href="#Consumables">
-                Consumables
+              <NavDropdown.Item>
+                <Link to="/auction-consumables" style={{ color: 'inherit', textDecoration: 'inherit'}}>Consumables</Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#Blocks">Blocks</NavDropdown.Item>
-              <NavDropdown.Item href="#Tools">Tools</NavDropdown.Item>
+              <NavDropdown.Item><Link to="/auction-blocks" style={{ color: 'inherit', textDecoration: 'inherit'}}>Blocks</Link></NavDropdown.Item>
+              <NavDropdown.Item><Link to="/auction-tools" style={{ color: 'inherit', textDecoration: 'inherit'}}>Tools</Link></NavDropdown.Item>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#All-Auction">All Items</NavDropdown.Item>
+              <NavDropdown.Item><Link to="/auction-all" style={{ color: 'inherit', textDecoration: 'inherit'}}>All Items</Link></NavDropdown.Item>
             </NavDropdown>
           </Nav>
           <Nav style={{ paddingRight: "1rem" }}>
-            <Nav.Link href="#profile">Profile</Nav.Link>
-            <Nav.Link eventKey={2} href="#login">
-              Login
+            <Nav.Link><Link to="/bazzar" style={{ color: 'inherit', textDecoration: 'inherit'}}>Bazzar</Link></Nav.Link>
+            <Nav.Link><Link to="/profile" style={{ color: 'inherit', textDecoration: 'inherit'}}>Profile</Link></Nav.Link>
+            <Nav.Link>
+              <Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
