@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Axios from "axios";
 import { Card, Button } from "react-bootstrap";
 
@@ -8,6 +8,10 @@ function Item({ itemID }) {
   const [lore, setLore] = useState("Loading...");
   const [tier, setTier] = useState("");
   const [category, setCategory] = useState("");
+
+  useEffect(() => {
+    getAuctions();
+  }, []);
 
   const getAuctions = () => {
     Axios.get("https://api.hypixel.net/skyblock/auctions").then((response) => {
@@ -28,10 +32,9 @@ function Item({ itemID }) {
         style={{
           width: "28rem",
           height: "25rem",
-          margin: "1rem",
-          float: "left",
+          margin: "0.5rem",
           display: "flex",
-          marginRight: "2.7rem"
+          float: "left",
         }}
         className="mb-2"
       >
@@ -44,9 +47,10 @@ function Item({ itemID }) {
           <Card.Title style={{ color: "blue" }}>
             Category: {String(category)}
           </Card.Title>
-          <Card.Text style={{ fontSize: "10px" }} className="text-wrap">{lore}</Card.Text>
+          <Card.Text style={{ fontSize: "10px" }} className="text-wrap">
+            {lore}
+          </Card.Text>
         </Card.Body>
-        <Button onClick={getAuctions} className="btn btn-info btn-sm">View</Button>
       </Card>
     </div>
   );
