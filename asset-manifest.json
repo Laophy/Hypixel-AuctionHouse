@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/Hypixel-AuctionHouse/static/css/main.3bc15889.chunk.css",
+    "main.js": "/Hypixel-AuctionHouse/static/js/main.e0bb8d0f.chunk.js",
+    "main.js.map": "/Hypixel-AuctionHouse/static/js/main.e0bb8d0f.chunk.js.map",
+    "runtime-main.js": "/Hypixel-AuctionHouse/static/js/runtime-main.ba2d85e5.js",
+    "runtime-main.js.map": "/Hypixel-AuctionHouse/static/js/runtime-main.ba2d85e5.js.map",
+    "static/css/2.d45d6843.chunk.css": "/Hypixel-AuctionHouse/static/css/2.d45d6843.chunk.css",
+    "static/js/2.57e3e78e.chunk.js": "/Hypixel-AuctionHouse/static/js/2.57e3e78e.chunk.js",
+    "static/js/2.57e3e78e.chunk.js.map": "/Hypixel-AuctionHouse/static/js/2.57e3e78e.chunk.js.map",
+    "index.html": "/Hypixel-AuctionHouse/index.html",
+    "static/css/2.d45d6843.chunk.css.map": "/Hypixel-AuctionHouse/static/css/2.d45d6843.chunk.css.map",
+    "static/css/main.3bc15889.chunk.css.map": "/Hypixel-AuctionHouse/static/css/main.3bc15889.chunk.css.map",
+    "static/js/2.57e3e78e.chunk.js.LICENSE.txt": "/Hypixel-AuctionHouse/static/js/2.57e3e78e.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ba2d85e5.js",
+    "static/css/2.d45d6843.chunk.css",
+    "static/js/2.57e3e78e.chunk.js",
+    "static/css/main.3bc15889.chunk.css",
+    "static/js/main.e0bb8d0f.chunk.js"
+  ]
+}
