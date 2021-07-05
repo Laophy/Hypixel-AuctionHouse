@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { Card, Button } from "react-bootstrap";
+import { Card, Button, Table, Jumbotron } from "react-bootstrap";
 
 export default function Bazzar() {
   const [bazzar, setBazzar] = useState([]);
@@ -21,21 +21,49 @@ export default function Bazzar() {
 
   return (
     <>
-      {Object.keys(bazzar).map((item, i) => (
-        <div key={i}>
-          <p>Item Name:{bazzar[item].product_id}</p>
-          <p>Buy Price: {bazzar[item].quick_status.buyPrice}</p>
-          <p>Sell Price: {bazzar[item].quick_status.sellPrice}</p>
-          <p>
-            Margin:{" "}
-            {findMargin(
-              bazzar[item].quick_status.sellPrice,
-              bazzar[item].quick_status.buyPrice
-            )}
-          </p>
-          <hr />
-        </div>
-      ))}
+      <Jumbotron>
+        <Card bg="light">
+          <Card.Header>
+            <h1>Hello, world!</h1>
+          </Card.Header>
+          <Card.Body>
+            <Card.Title>
+              Welcome to the Bazzar tracker. Here you will find all of the items
+              being sold by the Bazzar. Locate their margin/profit and find
+              deals to trade.
+            </Card.Title>
+          </Card.Body>
+        </Card>
+      </Jumbotron>
+      <Table striped bordered hover variant="secondary">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Item Name</th>
+            <th>Buy Price</th>
+            <th>Sell Price</th>
+            <th>Volume</th>
+            <th>Margin/Profit</th>
+          </tr>
+        </thead>
+        <tbody>
+          {Object.keys(bazzar).map((item, i) => (
+            <tr>
+              <td>{i}</td>
+              <td>{bazzar[item].product_id}</td>
+              <td>{bazzar[item].quick_status.buyPrice}</td>
+              <td>{bazzar[item].quick_status.sellPrice}</td>
+              <td>{bazzar[item].quick_status.buyVolume}</td>
+              <td>
+                {findMargin(
+                  bazzar[item].quick_status.sellPrice,
+                  bazzar[item].quick_status.buyPrice
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </Table>
     </>
   );
 }

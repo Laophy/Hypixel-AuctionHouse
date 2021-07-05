@@ -16,6 +16,10 @@ function App() {
           <Route exact path="/">
             <NavBarMain />
             <br />
+            <Items itemID={0} />
+            <Items itemID={1} />
+            <Items itemID={2} />
+            <Items itemID={3} />
           </Route>
           <Route path="/home">
             <NavBarMain />
@@ -24,14 +28,6 @@ function App() {
             <Items itemID={1} />
             <Items itemID={2} />
             <Items itemID={3} />
-            <Items itemID={4} />
-            <Items itemID={5} />
-            <Items itemID={6} />
-            <Items itemID={7} />
-            <Items itemID={8} />
-            <Items itemID={9} />
-            <Items itemID={10} />
-            <Items itemID={11} />
           </Route>
           <Route path="/profile">
             <NavBarMain />
@@ -58,13 +54,11 @@ function App() {
           </Route>
           <Route path="/bin-all">
             <NavBarMain />
-            <p>View all buy it now items.</p>
-            <br />
+            <AuctionAll />
           </Route>
           <Route path="/auction-all">
             <NavBarMain />
             <AuctionAll />
-            <br />
           </Route>
         </Switch>
       </div>
