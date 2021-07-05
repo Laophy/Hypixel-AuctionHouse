@@ -28,8 +28,8 @@ export default function NavBarMain() {
             Hypixel Auctions
           </Link>
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="navbarScroll" />
-        <Navbar.Collapse id="navbarScroll">
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link>
               <Link
@@ -40,7 +40,7 @@ export default function NavBarMain() {
               </Link>
             </Nav.Link>
             <NavDropdown title="Buy Now" id="collapsible-nav-dropdown">
-              <NavDropdown.Header>BIN Items</NavDropdown.Header>
+              <NavDropdown.Header>Buy Now</NavDropdown.Header>
               <NavDropdown.Divider />
               <NavDropdown.Item>
                 <Link
@@ -50,19 +50,50 @@ export default function NavBarMain() {
                   Weapons
                 </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#BIN-Armor">Armor</NavDropdown.Item>
-              <NavDropdown.Item href="#BIN-Accessories">
-                Accessories
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#BIN-Consumables">
-                Consumables
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#BIN-Blocks">Blocks</NavDropdown.Item>
-              <NavDropdown.Item href="#BIN-Tools">Tools</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#BIN-All">
+              <NavDropdown.Item>
                 <Link
-                  to="/bin-all"
+                  to="/bin-Armor"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Armor
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to="/bin-Accessories"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Accessories
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to="/bin-consumables"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Consumables
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to="/bin-blocks"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Blocks
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to="/bin-tools"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Tools
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item>
+                <Link
+                  to="/auction-all"
                   style={{ color: "inherit", textDecoration: "inherit" }}
                 >
                   All Items
@@ -73,12 +104,29 @@ export default function NavBarMain() {
             <NavDropdown title="Auction" id="collapsible-nav-dropdown">
               <NavDropdown.Header>Auction Items</NavDropdown.Header>
               <NavDropdown.Divider />
-              <NavDropdown.Item href="#Auction-Weapons">
-                Weapons
+              <NavDropdown.Item>
+                <Link
+                  to="/auction-Weapons"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Weapons
+                </Link>
               </NavDropdown.Item>
-              <NavDropdown.Item href="#Auction-Armor">Armor</NavDropdown.Item>
-              <NavDropdown.Item href="#Auction-Accessories">
-                Accessories
+              <NavDropdown.Item>
+                <Link
+                  to="/auction-Armor"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Armor
+                </Link>
+              </NavDropdown.Item>
+              <NavDropdown.Item>
+                <Link
+                  to="/auction-Accessories"
+                  style={{ color: "inherit", textDecoration: "inherit" }}
+                >
+                  Accessories
+                </Link>
               </NavDropdown.Item>
               <NavDropdown.Item>
                 <Link

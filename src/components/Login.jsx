@@ -8,9 +8,7 @@ export default function Login() {
         style={{
           width: "100%",
           height: "100%",
-          margin: "2rem",
         }}
-        className="mx-auto"
       >
         <Card.Header>Login</Card.Header>
         <Card.Body>
@@ -20,6 +18,14 @@ export default function Login() {
               <Form.Control type="email" placeholder="Enter email" />
               <Form.Text className="text-muted">
                 We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group controlId="formMinecraftUsername">
+              <Form.Label>Minecraft Username</Form.Label>
+              <Form.Control type="text" placeholder="Enter Minecraft User" />
+              <Form.Text className="text-muted">
+                Used to generate your profile on Hypixel.
               </Form.Text>
             </Form.Group>
 

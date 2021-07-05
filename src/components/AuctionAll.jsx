@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 
 export default function AuctionAll() {
   const [auctions, setAuctions] = useState([]);
@@ -24,13 +24,14 @@ export default function AuctionAll() {
             bg="light"
             text="Test Card"
             style={{
-              width: "28rem",
+              width: "25rem",
               height: "25rem",
               margin: "0.5rem",
+              marginLeft: "3%",
               display: "flex",
               float: "left",
             }}
-            className="mb-2"
+            className="mb-3"
           >
             <Card.Header>{item.item_name}</Card.Header>
             <Card.Body>

@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
-import { Card, Button, Table, Jumbotron } from "react-bootstrap";
+import { Card, Button, Table, Form, Accordion } from "react-bootstrap";
 
 export default function Bazzar() {
   const [bazzar, setBazzar] = useState([]);
 
-  const itemsArr = useEffect(() => {
+  useEffect(() => {
     loadBazzar();
   }, []);
 
@@ -21,21 +21,38 @@ export default function Bazzar() {
 
   return (
     <>
-      <Jumbotron>
+      <Accordion defaultActiveKey="1">
         <Card bg="light">
           <Card.Header>
-            <h1>Hello, world!</h1>
+            <Accordion.Toggle
+              as={Button}
+              variant="outline-primary"
+              eventKey="0"
+            >
+              Custom Profit Calculator (^v)
+            </Accordion.Toggle>
           </Card.Header>
-          <Card.Body>
-            <Card.Title>
-              Welcome to the Bazzar tracker. Here you will find all of the items
-              being sold by the Bazzar. Locate their margin/profit and find
-              deals to trade.
-            </Card.Title>
-          </Card.Body>
+          <Accordion.Collapse eventKey="0">
+            <Card.Body>
+              <Form>
+                <Form.Group>
+                  <Card.Title>Total Amount to Invest:</Card.Title>
+                  <Form.Control
+                    type="number"
+                    placeholder="$0.00"
+                    controlId="search.Investment"
+                  />
+                  <br />
+                  <Button variant="outline-primary" type="submit">
+                    Search
+                  </Button>
+                </Form.Group>
+              </Form>
+            </Card.Body>
+          </Accordion.Collapse>
         </Card>
-      </Jumbotron>
-      <Table striped bordered hover variant="secondary">
+      </Accordion>
+      <Table striped bordered hover variant="secondary" responsive="lg">
         <thead>
           <tr>
             <th>#</th>
@@ -48,7 +65,7 @@ export default function Bazzar() {
         </thead>
         <tbody>
           {Object.keys(bazzar).map((item, i) => (
-            <tr>
+            <tr key={i}>
               <td>{i}</td>
               <td>{bazzar[item].product_id}</td>
               <td>{bazzar[item].quick_status.buyPrice}</td>

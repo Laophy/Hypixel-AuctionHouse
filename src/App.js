@@ -3,10 +3,11 @@ import React from "react";
 import Items from "./components/Item";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBarMain from "./components/NavBarMain";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import AuctionAll from "./components/AuctionAll";
 import Login from "./components/Login";
 import Bazzar from "./components/Bazzar";
+import Profile from "./components/Profile";
 
 function App() {
   return (
@@ -15,7 +16,6 @@ function App() {
         <Switch>
           <Route exact path="/">
             <NavBarMain />
-            <br />
             <Items itemID={0} />
             <Items itemID={1} />
             <Items itemID={2} />
@@ -23,7 +23,6 @@ function App() {
           </Route>
           <Route path="/home">
             <NavBarMain />
-            <br />
             <Items itemID={0} />
             <Items itemID={1} />
             <Items itemID={2} />
@@ -31,8 +30,7 @@ function App() {
           </Route>
           <Route path="/profile">
             <NavBarMain />
-            <p>View you personal profile when logged in.</p>
-            <br />
+            <Profile />
           </Route>
           <Route path="/profiles">
             <NavBarMain />
