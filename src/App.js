@@ -34,8 +34,7 @@ function App() {
           </Route>
           <Route path="/profiles">
             <NavBarMain />
-            <p>Load other players profiles here.</p>
-            <br />
+            <Profile />
           </Route>
           <Route path="/login">
             <NavBarMain />

@@ -18,7 +18,7 @@ export default function NavBarMain() {
         expand="lg"
         bg="dark"
         variant="dark"
-        style={{ height: "3rem", fontSize: "13px" }}
+        style={{ fontSize: "13px" }}
       >
         <Navbar.Brand style={{ paddingLeft: "1rem", fontSize: "19px" }}>
           <Link
@@ -164,12 +164,6 @@ export default function NavBarMain() {
             </NavDropdown>
           </Nav>
           <Nav style={{ paddingRight: "1rem" }}>
-            <Form inline style={{ display: "flex", paddingRight: "5px" }}>
-              <FormControl type="text" placeholder="Search Item" />
-              <Button variant="outline-danger" style={{ marginLeft: "5px" }}>
-                Search
-              </Button>
-            </Form>
             <Nav.Link>
               <Link
                 to="/bazzar"

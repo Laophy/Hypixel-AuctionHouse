@@ -23,7 +23,7 @@ export default function Login() {
 
             <Form.Group controlId="formMinecraftUsername">
               <Form.Label>Minecraft Username</Form.Label>
-              <Form.Control type="text" placeholder="Enter Minecraft User" />
+              <Form.Control type="text" placeholder="Minecraft Account" />
               <Form.Text className="text-muted">
                 Used to generate your profile on Hypixel.
               </Form.Text>

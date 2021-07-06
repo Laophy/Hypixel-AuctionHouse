@@ -6,21 +6,26 @@ import { Form, Button, Card, Table } from "react-bootstrap";
 export default function Profile() {
   const [player, setPlayer] = useState("NULL ID");
   const [auctions, setAuctions] = useState([]);
+
   const [isLoading, setLoading] = useState(true);
+  const [loaded, setLoaded] = useState(false);
+
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState(false);
+  const [username, setUsername] = useState("ChadMaster");
 
   useEffect(() => {
-    findUUID("ChadMaster");
-    findAuctions();
+    findUUID(username);
   }, []);
 
   const API_KEY = process.env.REACT_APP_API_KEY;
   const skyblockUUID = "https://api.hypixel.net/player";
   const playersAuctions = "https://api.hypixel.net/skyblock/auction";
+  const playerStatus = "https://api.hypixel.net/status";
 
-  const findUUID = (username) => {
+  const findUUID = () => {
     Axios.get(`${skyblockUUID}?key=${API_KEY}&name=${username}`).then((res) => {
       setPlayer(res.data.player);
-      console.log(res);
       setLoading(false);
     });
   };
@@ -28,14 +33,35 @@ export default function Profile() {
   const findAuctions = () => {
     Axios.get(`${playersAuctions}?key=${API_KEY}&player=${player.uuid}`).then(
       (res) => {
-        console.log(res.data.auctions);
         setAuctions(res.data.auctions);
       }
     );
   };
 
+  const getStatus = () => {
+    Axios.get(`${playerStatus}?key=${API_KEY}&uuid=${player.uuid}`).then(
+      (res) => {
+        if (res.session.online == true) {
+          setStatus(true);
+        } else if (res.session.online == false) {
+          setStatus(false);
+        }
+      }
+    );
+  };
+
   if (isLoading) {
-    return <div>Loading Data... Might have hit API fetch limit...</div>;
+    return (
+      <div>
+        <p>Loading Data... Might have hit API fetch limit...</p>
+      </div>
+    );
+  }
+
+  if (!isLoading && !loaded) {
+    findAuctions();
+    getStatus();
+    setLoaded(true);
   }
 
   return (
@@ -52,9 +78,29 @@ export default function Profile() {
           <Card.Title>Profile</Card.Title>
         </Card.Header>
         <Card.Body>
-          <Card.Text>Username: {player.playername}</Card.Text>
+          <Form>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>Minecraft Username:</Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Username"
+                style={{ width: "28rem" }}
+                value={username}
+              />
+              <Form.Text className="text-muted">
+                Used to track your profile stats.
+                <br />
+              </Form.Text>
+              <Button variant="outline-primary" className="my-2">
+                Submit
+              </Button>
+              <hr />
+            </Form.Group>
+          </Form>
+          <Card.Text>Username: {player.displayname}</Card.Text>
           <Card.Text>Hypixel Rank: {player.newPackageRank}</Card.Text>
-          <Card.Text>Account ID: {player.uuid}</Card.Text>
+          <Card.Text>Currently Online: {status.toString()}</Card.Text>
+          <Card.Text>Account UID: {player.uuid}</Card.Text>
           <Card.Text>Karma: {player.karma}</Card.Text>
           <Card.Text>Achievement Points: {player.achievementPoints}</Card.Text>
           <Card.Text>Recent Lobby: {player.mostRecentGameType}</Card.Text>
@@ -94,7 +140,11 @@ export default function Profile() {
         }}
       >
         <Card.Header>
-          <Card.Title as={Button} onClick={findAuctions}>
+          <Card.Title
+            as={Button}
+            onClick={findAuctions}
+            variant="outline-primary"
+          >
             Skyblock Auctions (Click to Generate)
           </Card.Title>
         </Card.Header>
