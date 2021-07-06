@@ -6,6 +6,7 @@ import { Form, Button, Card, Table } from "react-bootstrap";
 export default function Profile() {
   const [player, setPlayer] = useState("NULL ID");
   const [auctions, setAuctions] = useState([]);
+  const [isLoading, setLoading] = useState(true);
 
   useEffect(() => {
     findUUID("ChadMaster");
@@ -20,6 +21,7 @@ export default function Profile() {
     Axios.get(`${skyblockUUID}?key=${API_KEY}&name=${username}`).then((res) => {
       setPlayer(res.data.player);
       console.log(res);
+      setLoading(false);
     });
   };
 
@@ -31,6 +33,10 @@ export default function Profile() {
       }
     );
   };
+
+  if (isLoading) {
+    return <div>Loading Data... Might have hit API fetch limit...</div>;
+  }
 
   return (
     <div>
@@ -47,8 +53,36 @@ export default function Profile() {
         </Card.Header>
         <Card.Body>
           <Card.Text>Username: {player.playername}</Card.Text>
+          <Card.Text>Hypixel Rank: {player.newPackageRank}</Card.Text>
           <Card.Text>Account ID: {player.uuid}</Card.Text>
           <Card.Text>Karma: {player.karma}</Card.Text>
+          <Card.Text>Achievement Points: {player.achievementPoints}</Card.Text>
+          <Card.Text>Recent Lobby: {player.mostRecentGameType}</Card.Text>
+          <hr />
+          <Card.Title>Skyblock Levels</Card.Title>
+          <Card.Text>Combat: {player.achievements.skyblock_combat}</Card.Text>
+          <Card.Text>
+            Dungeoneering: {player.achievements.skyblock_dungeoneer}
+          </Card.Text>
+          <Card.Text>
+            Mining: {player.achievements.skyblock_excavator}
+          </Card.Text>
+          <Card.Text>
+            Pet Taming: {player.achievements.skyblock_domesticator}
+          </Card.Text>
+          <Card.Text>Fishing: {player.achievements.skyblock_angler}</Card.Text>
+          <Card.Text>
+            Farming: {player.achievements.skyblock_harvester}
+          </Card.Text>
+          <Card.Text>
+            Tree Cutting: {player.achievements.skyblock_gatherer}
+          </Card.Text>
+          <Card.Text>
+            Enchanting: {player.achievements.skyblock_augmentation}
+          </Card.Text>
+          <Card.Text>
+            Alchemy: {player.achievements.skyblock_concoctor}
+          </Card.Text>
         </Card.Body>
       </Card>
       <Card
@@ -88,6 +122,9 @@ export default function Profile() {
             </tbody>
           </Table>
         </Card.Body>
+        <Card.Footer>
+          API Help: https://hypixel-skyblock.fandom.com/wiki/SkyBlock_API
+        </Card.Footer>
       </Card>
     </div>
   );

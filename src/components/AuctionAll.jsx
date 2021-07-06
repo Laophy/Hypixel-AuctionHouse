@@ -44,8 +44,8 @@ export default function AuctionAll() {
               <Card.Title style={{ color: "blue" }}>
                 Category: {String(item.category)}
               </Card.Title>
-              <Card.Text style={{ fontSize: "10px" }} className="text-wrap">
-                {item.item_lore}
+              <Card.Text style={{ fontSize: "18px" }} className="text-wrap">
+                {item.extra}
               </Card.Text>
               <hr />
               <Card.Title style={{ color: "black", fontSize: "10px" }}>
